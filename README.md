@@ -2,6 +2,17 @@
 
 > Ask questions during your Grunt workflow. Use user input for later tasks
 
+
+#### Choose from a list:
+![List](https://f.cloud.github.com/assets/51505/823607/6549de22-f017-11e2-8a70-04bf663d5876.png)
+
+#### Select more than one:
+![Choices](https://f.cloud.github.com/assets/51505/823611/92c06a10-f017-11e2-82cf-24b1b8e5601d.png)
+
+#### Text input with validation and filtering:
+![Input](https://f.cloud.github.com/assets/51505/823612/aa893c08-f017-11e2-97bb-f5eef6c1e845.png)
+
+
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
 
@@ -132,64 +143,65 @@ update your project's version in the `package.json`, `bower.json`, and `git tag`
 
 ```js
 prompt: {
-prompt: {
-  bump: {
-    options: {
-      questions: [
-        {
-          config:  'bump.increment',
-          type:    'list',
-          // normally these versions wouldn't be hardcoded
-          message: 'Bump version from ' + '1.2.3'.cyan + ' to:',
-          choices: [
-            '1.2.4-? ❘❙❚ Build: unstable, betas, and release candidates.',
-            '1.2.4   ❘❙❚ Patch: backwards-compatible bug fixes.',
-            '1.3.0   ❘❙❚ Minor: add functionality in a backwards-compatible manner.',
-            '2.0.0   ❘❙❚ Major: incompatible API changes.',
-            '?.?.?   ❘❙❚ Custom: Specify version...'
-          ],
-          filter:  function (value) {
-            var matches = value.match(/([^(\s)]*):/);
-            return matches && matches[1].toLowerCase();
-          }
-        },
-        {
-          config:   'bump.version',
-          type:     'input',
-          message:  'What specific version would you like',
-          when:     function (answers) {
-            return answers['bump.increment'] === 'custom';
-          },
-          validate: function (value) {
-            var valid = require('semver').valid(value) && true;
-            return valid || 'Must be a valid semver, such as 1.2.3. See http://semver.org/';
-          }
-        },
-        {
-          config:  'bump.files',
-          type:    'checkbox',
-          message: 'What should get the new version:',
-          choices: [
-            {
-              name:    'package.json',
-              checked: grunt.file.isFile('package.json')
-            },
-            {
-              name:    'bower.json',
-              checked: grunt.file.isFile('bower.json')
-            },
-            {
-              name:    'git tag',
-              checked: grunt.file.isDir('.git')
+  prompt: {
+    bump: {
+      options: {
+        questions: [
+          {
+            config:  'bump.increment',
+            type:    'list',
+            // normally these versions wouldn't be hardcoded
+            message: 'Bump version from ' + '1.2.3'.cyan + ' to:',
+            choices: [
+              '1.2.4-? ❘❙❚ Build: unstable, betas, and release candidates.',
+              '1.2.4   ❘❙❚ Patch: backwards-compatible bug fixes.',
+              '1.3.0   ❘❙❚ Minor: add functionality in a backwards-compatible manner.',
+              '2.0.0   ❘❙❚ Major: incompatible API changes.',
+              '?.?.?   ❘❙❚ Custom: Specify version...'
+            ],
+            filter:  function (value) {
+              var matches = value.match(/([^(\s)]*):/);
+              return matches && matches[1].toLowerCase();
             }
-          ]
-        }
-      ]
+          },
+          {
+            config:   'bump.version',
+            type:     'input',
+            message:  'What specific version would you like',
+            when:     function (answers) {
+              return answers['bump.increment'] === 'custom';
+            },
+            validate: function (value) {
+              var valid = require('semver').valid(value) && true;
+              return valid || 'Must be a valid semver, such as 1.2.3. See http://semver.org/';
+            }
+          },
+          {
+            config:  'bump.files',
+            type:    'checkbox',
+            message: 'What should get the new version:',
+            choices: [
+              {
+                name:    'package.json',
+                checked: grunt.file.isFile('package.json')
+              },
+              {
+                name:    'bower.json',
+                checked: grunt.file.isFile('bower.json')
+              },
+              {
+                name:    'git tag',
+                checked: grunt.file.isDir('.git')
+              }
+            ]
+          }
+        ]
+      }
     }
   }
-}
 }```
-
+```
 
 ## Release History
-_(Nothing yet)_
+
+* **0.1.0** - 18 July 2013 - First version, after an exhausting but fun day with the family at Hershey Park.
