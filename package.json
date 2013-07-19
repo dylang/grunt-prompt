@@ -1,0 +1,46 @@
+{
+  "name": "grunt-prompt",
+  "description": "Add interactive UI to your Gruntfile such as lists, checkboxes, text input with filtering, and password fields, all on the command line.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/dylang/grunt-prompt",
+  "author": {
+    "name": "Dylan Greene",
+    "email": "dylang@gmail.com",
+    "url": "http://doodleordie.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dylang/grunt-prompt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dylang/grunt-prompt/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/dylang/grunt-prompt/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6",
+    "grunt-contrib-nodeunit": "~0.2",
+    "grunt": "~0.4.1",
+    "semver": "~2.0.10"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "dependencies": {
+    "inquirer": "~0.2.1"
+  }
+}
