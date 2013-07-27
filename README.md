@@ -2,16 +2,7 @@
 
 > Ask questions during your Grunt workflow. Use user input for later tasks
 
-
-#### Choose from a list:
-![List](https://f.cloud.github.com/assets/51505/823607/6549de22-f017-11e2-8a70-04bf663d5876.png)
-
-#### Text input with validation and filtering:
-![Input](https://f.cloud.github.com/assets/51505/823612/aa893c08-f017-11e2-97bb-f5eef6c1e845.png)
-
-#### Select more than one:
-![Choices](https://f.cloud.github.com/assets/51505/823611/92c06a10-f017-11e2-82cf-24b1b8e5601d.png)
-
+![grunt-prompt-example-bump](https://f.cloud.github.com/assets/51505/867601/b3200cb6-f710-11e2-89da-675c831c218a.gif)
 
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
@@ -53,6 +44,18 @@ grunt.initConfig({
   },
 })
 ```
+### Types of Questions
+
+#### list
+
+#### checkbox
+
+#### confirm
+
+#### input
+
+#### password
+
 
 ### Options
 
@@ -130,7 +133,7 @@ Return `string` message if it is not valid.
 
 Type: `function(value)` _optional_
 
-Use a modified version of the input for the answer. Useful for stripping extra characters, converting strings to integers, etc.
+Use a modified version of the input for the answer. Useful for stripping extra characters, converting strings to integers.
 
 #### when
 
