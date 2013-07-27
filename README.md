@@ -6,11 +6,11 @@
 #### Choose from a list:
 ![List](https://f.cloud.github.com/assets/51505/823607/6549de22-f017-11e2-8a70-04bf663d5876.png)
 
-#### Select more than one:
-![Choices](https://f.cloud.github.com/assets/51505/823611/92c06a10-f017-11e2-82cf-24b1b8e5601d.png)
-
 #### Text input with validation and filtering:
 ![Input](https://f.cloud.github.com/assets/51505/823612/aa893c08-f017-11e2-97bb-f5eef6c1e845.png)
+
+#### Select more than one:
+![Choices](https://f.cloud.github.com/assets/51505/823611/92c06a10-f017-11e2-82cf-24b1b8e5601d.png)
 
 
 ## Getting Started
