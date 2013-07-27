@@ -2,7 +2,7 @@
 
 > Ask questions during your Grunt workflow. Use user input for later tasks
 
-![grunt-prompt-example-bump](https://f.cloud.github.com/assets/51505/867601/b3200cb6-f710-11e2-89da-675c831c218a.gif)
+![grunt-prompt-example](https://f.cloud.github.com/assets/51505/867636/e727abfc-f717-11e2-997e-6b97e24593c3.gif)
 
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
@@ -144,7 +144,7 @@ Choose when this question is asked. Perfect for asking questions based on the re
 
 ### Usage Examples
 
-
+![grunt-prompt-example-bump](https://f.cloud.github.com/assets/51505/867601/b3200cb6-f710-11e2-89da-675c831c218a.gif)
 
 This is an example of how `grunt-prompt` for something like [grunt-bump](https://github.com/vojtajina/grunt-bump) which makes it easy to
 update your project's version in the `package.json`, `bower.json`, and `git tag`.
