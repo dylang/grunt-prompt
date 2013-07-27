@@ -8,6 +8,9 @@
 
 'use strict';
 
+var semver = require('semver');
+var currentVersion = require('./package.json').version;
+
 module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -17,6 +20,9 @@ module.exports = function (grunt) {
 
     // Project configuration.
     grunt.initConfig({
+
+        pkg: grunt.file.readJSON('package.json'),
+
         jshint: {
             all: [
                 'Gruntfile.js',
@@ -29,61 +35,80 @@ module.exports = function (grunt) {
         },
 
         // Configuration to be run (and then tested).
-        prompt: {
-            bump: {
-                options: {
-                    questions: [
-                        {
-                            config: 'bump.increment',
-                            type: 'list',
-                            message: 'Bump version from ' + '1.2.3'.cyan + ' to:',
-                            choices: [
-                                '1.2.4-? ❘❙❚ Build: unstable, betas, and release candidates.',
-                                '1.2.4   ❘❙❚ Patch: backwards-compatible bug fixes.',
-                                '1.3.0   ❘❙❚ Minor: add functionality in a backwards-compatible manner.',
-                                '2.0.0   ❘❙❚ Major: incompatible API changes.',
-                                '?.?.?   ❘❙❚ Custom: Specify version...'
-                            ],
-                            filter: function(value) {
-                                var matches = value.match(/([^(\s)]*):/);
-                                return matches && matches[1].toLowerCase();
-                            }
-                        },
-                        {
-                            config: 'bump.version',
-                            type: 'input',
-                            message: 'What specific version would you like',
-                            when: function (answers) {
-                                return answers['bump.increment'] === 'custom';
-                            },
-                            validate: function (value) {
-                                var valid = require('semver').valid(value) && true;
-                                return valid || 'Must be a valid semver, such as 1.2.3. See http://semver.org/';
-                            }
-                        },
-                        {
-                            config: 'bump.files',
-                            type: 'checkbox',
-                            message: 'What should get the new version:',
-                            choices: [
-                                {
-                                    name: 'package.json',
-                                    checked: grunt.file.isFile('package.json')
-                                },
-                                {
-                                    name: 'bower.json',
-                                    checked: grunt.file.isFile('bower.json')
-                                },
-                                {
-                                    name: 'git tag',
-                                    checked: grunt.file.isDir('.git')
-                                }
-                            ]
-                        }
-                    ]
-                }
+prompt: {
+  bump: {
+    options: {
+      questions: [
+        {
+          config:  'bump.increment',
+          type:    'list',
+          message: 'Bump version from ' + '<%= pkg.version %>'.cyan + ' to:',
+          choices: [
+            {
+              value: 'build',
+              name:  'Build:  '.yellow + (currentVersion + '-?').yellow +
+                ' Unstable, betas, and release candidates.'
+            },
+            {
+              value: 'patch',
+              name:  'Patch:  '.yellow + semver.inc(currentVersion, 'patch').yellow +
+                '   Backwards-compatible bug fixes.'
+            },
+            {
+              value: 'minor',
+              name:  'Minor:  '.yellow + semver.inc(currentVersion, 'minor').yellow +
+                '   Add functionality in a backwards-compatible manner.'
+            },
+            {
+              value: 'major',
+              name:  'Major:  '.yellow + semver.inc(currentVersion, 'major').yellow +
+                '   Incompatible API changes.'
+            },
+            {
+              value: 'custom',
+              name:  'Custom: ?.?.?'.yellow +
+                '   Specify version...'
             }
+          ]
         },
+        {
+          config:   'bump.version',
+          type:     'input',
+          message:  'What specific version would you like',
+          when:     function (answers) {
+            return answers['bump.increment'] === 'custom';
+          },
+          validate: function (value) {
+            var valid = semver.valid(value) && true;
+            return valid || 'Must be a valid semver, such as 1.2.3-rc1. See ' + 'http://semver.org/'.blue.underline + ' for more details.';
+          }
+        },
+        {
+          config:  'bump.files',
+          type:    'checkbox',
+          message: 'What should get the new version:',
+          choices: [
+            {
+              value:   'package',
+              name:    'package.json' + (!grunt.file.isFile('package.json') ? ' file not found, will create one'.grey : ''),
+              checked: grunt.file.isFile('package.json')
+            },
+            {
+              value:   'bower',
+              name:    'bower.json' + (!grunt.file.isFile('bower.json') ? ' file not found, will create one'.grey : ''),
+              checked: grunt.file.isFile('bower.json')
+            },
+            {
+              value:   'git',
+              name:    'git tag',
+              checked: grunt.file.isDir('.git')
+            }
+          ]
+        }
+      ]
+    }
+  }
+},
 
         // Unit tests.
         nodeunit: {
@@ -91,17 +116,35 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('echo', '', function(){
-        grunt.log.ok('bump.increment: ' + grunt.config('bump.increment') + '.');
-        grunt.log.ok('bump.version: ' + grunt.config('bump.version') + '.');
-        grunt.log.ok('bump.files: ' + grunt.config('bump.files') + '.');
+    // Fake Grunt Bump task
+    grunt.registerTask('bump', '', function(){
+        if (grunt.config('bump.increment') === 'custom') {
+            grunt.log.ok('Bumping version to ' + grunt.config('bump.version').yellow + ':');
+        } else {
+            grunt.log.ok('Bumping up ' + grunt.config('bump.increment').yellow + ' version number.');
+        }
+
+        if (grunt.util._(grunt.config('bump.files')).contains('package')) {
+            grunt.log.ok('Updating ' + 'package.json'.yellow + '.');
+        }
+
+        if (grunt.util._(grunt.config('bump.files')).contains('bower')) {
+            if (!grunt.file.isFile('bower.json')) {
+                grunt.log.ok('Creating ' + 'bower.json'.yellow + '.');
+            }
+            grunt.log.ok('Updating ' + 'bower.json'.yellow + '.');
+        }
+
+        if (grunt.util._(grunt.config('bump.files')).contains('git')) {
+            grunt.log.ok('Updating ' + 'git tag'.yellow + '.');
+        }
     });
 
     grunt.registerTask('test',
         [
             'jshint',
             'prompt',
-            'echo'//,
+            'bump'//,
             //'nodeunit'
         ]);
 
@@ -109,7 +152,7 @@ module.exports = function (grunt) {
         [
             'jshint',
             'prompt:bump',
-            'echo'
+            'bump'
         ]);
 
 };

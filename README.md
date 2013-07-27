@@ -102,15 +102,20 @@ For `question type 'list'`: Type: `array of strings`
 choices: ['jshint', 'jslint', 'eslint', 'I like to live dangerously.']
 ```
 
-For `question type 'checkbox'`: Type: `array of hashes`
+If you want to specify the value for the choices then use this format:
 
-Include `checked: true` to select it by default.
+For `question types 'checkbox' and 'list'`: Type: `array of hashes`
+
+ * `name` The label that is displayed in the UI.
+ * `value` _optional_ Value returned. When not used the name is used instead.
+ * `checked` Choosed the option by default.
 
 ```
 choices: [
     {name: 'jshint', checked: true},
     {name: 'jslint'},
-    {name: 'eslint'}
+    {name: 'eslint'},
+    {name: 'something else', value: 'other' }
     ]
 ```
 
@@ -143,65 +148,83 @@ update your project's version in the `package.json`, `bower.json`, and `git tag`
 
 ```js
 prompt: {
-  prompt: {
-    bump: {
-      options: {
-        questions: [
-          {
-            config:  'bump.increment',
-            type:    'list',
-            // normally these versions wouldn't be hardcoded
-            message: 'Bump version from ' + '1.2.3'.cyan + ' to:',
-            choices: [
-              '1.2.4-? ❘❙❚ Build: unstable, betas, and release candidates.',
-              '1.2.4   ❘❙❚ Patch: backwards-compatible bug fixes.',
-              '1.3.0   ❘❙❚ Minor: add functionality in a backwards-compatible manner.',
-              '2.0.0   ❘❙❚ Major: incompatible API changes.',
-              '?.?.?   ❘❙❚ Custom: Specify version...'
-            ],
-            filter:  function (value) {
-              var matches = value.match(/([^(\s)]*):/);
-              return matches && matches[1].toLowerCase();
-            }
-          },
-          {
-            config:   'bump.version',
-            type:     'input',
-            message:  'What specific version would you like',
-            when:     function (answers) {
-              return answers['bump.increment'] === 'custom';
+  bump: {
+    options: {
+      questions: [
+        {
+          config:  'bump.increment',
+          type:    'list',
+          message: 'Bump version from ' + '<%= pkg.version %>'.cyan + ' to:',
+          choices: [
+            {
+              value: 'build',
+              name:  'Build:  '.yellow + (currentVersion + '-?').yellow +
+                ' Unstable, betas, and release candidates.'
             },
-            validate: function (value) {
-              var valid = require('semver').valid(value) && true;
-              return valid || 'Must be a valid semver, such as 1.2.3. See http://semver.org/';
+            {
+              value: 'patch',
+              name:  'Patch:  '.yellow + semver.inc(currentVersion, 'patch').yellow +
+                '   Backwards-compatible bug fixes.'
+            },
+            {
+              value: 'minor',
+              name:  'Minor:  '.yellow + semver.inc(currentVersion, 'minor').yellow +
+                '   Add functionality in a backwards-compatible manner.'
+            },
+            {
+              value: 'major',
+              name:  'Major:  '.yellow + semver.inc(currentVersion, 'major').yellow +
+                '   Incompatible API changes.'
+            },
+            {
+              value: 'custom',
+              name:  'Custom: ?.?.?'.yellow +
+                '   Specify version...'
             }
+          ]
+        },
+        {
+          config:   'bump.version',
+          type:     'input',
+          message:  'What specific version would you like',
+          when:     function (answers) {
+            return answers['bump.increment'] === 'custom';
           },
-          {
-            config:  'bump.files',
-            type:    'checkbox',
-            message: 'What should get the new version:',
-            choices: [
-              {
-                name:    'package.json',
-                checked: grunt.file.isFile('package.json')
-              },
-              {
-                name:    'bower.json',
-                checked: grunt.file.isFile('bower.json')
-              },
-              {
-                name:    'git tag',
-                checked: grunt.file.isDir('.git')
-              }
-            ]
+          validate: function (value) {
+            var valid = semver.valid(value) && true;
+            return valid || 'Must be a valid semver, such as 1.2.3-rc1. See ' +
+              'http://semver.org/'.blue.underline + ' for more details.';
           }
-        ]
-      }
+        },
+        {
+          config:  'bump.files',
+          type:    'checkbox',
+          message: 'What should get the new version:',
+          choices: [
+            {
+              value:   'package',
+              name:    'package.json' +
+                (!grunt.file.isFile('package.json') ? ' file not found, will create one'.grey : ''),
+              checked: grunt.file.isFile('package.json')
+            },
+            {
+              value:   'bower',
+              name:    'bower.json' +
+                (!grunt.file.isFile('bower.json') ? ' file not found, will create one'.grey : ''),
+              checked: grunt.file.isFile('bower.json')
+            },
+            {
+              value:   'git',
+              name:    'git tag',
+              checked: grunt.file.isDir('.git')
+            }
+          ]
+        }
+      ]
     }
   }
-}```
+}
 ```
 
 ## Release History
-
 * **0.1.0** - 18 July 2013 - First version, after an exhausting but fun day with the family at Hershey Park.
