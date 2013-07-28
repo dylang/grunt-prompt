@@ -225,4 +225,5 @@ prompt: {
 ```
 
 ## Release History
+* **0.1.1** - 27 July 2013 - Some documentation cleanup, better screenshots, new example code in the gruntfile, reomved unused tests.
 * **0.1.0** - 18 July 2013 - First version, after an exhausting but fun day with the family at Hershey Park.
