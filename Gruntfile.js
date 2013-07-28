@@ -14,7 +14,6 @@ var currentVersion = require('./package.json').version;
 module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-mocha-cli');
 
     grunt.loadTasks('tasks');
 
@@ -30,7 +29,8 @@ module.exports = function (grunt) {
                 'test/*.js'
             ],
             options: {
-                jshintrc: '.jshintrc'
+                jshintrc: '.jshintrc',
+                ignores: []
             }
         },
 
