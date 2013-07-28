@@ -30,14 +30,14 @@ grunt.initConfig({
     target: {
       options: {
         questions: [
-            config: 'config.name', // arbitray name or config for any other grunt task
-            type: '<question type>', // list, checkbox, confirm, input, password
-            message: 'Question to ask the user',
-            default: 'value', // default value if nothing is entered
-            choices: 'Array|Function(answers)',
-            validate: Function(value), // return true if valid, error message if invalid
-            filter:  Function(value), // modify the answer
-            when: Function(answers) // only ask this question when this function returns true
+          config: 'config.name', // arbitray name or config for any other grunt task
+          type: '<question type>', // list, checkbox, confirm, input, password
+          message: 'Question to ask the user',
+          default: 'value', // default value if nothing is entered
+          choices: 'Array|Function(answers)',
+          validate: Function(value), // return true if valid, error message if invalid
+          filter:  Function(value), // modify the answer
+          when: Function(answers) // only ask this question when this function returns true
         ]
       }
     },
@@ -110,11 +110,11 @@ For `question types 'checkbox' and 'list'`: Type: `array of hashes`
 
 ```
 choices: [
-    {name: 'jshint', checked: true},
-    {name: 'jslint'},
-    {name: 'eslint'},
-    {name: 'something else', value: 'other' }
-    ]
+  { name: 'jshint', checked: true },
+  { name: 'jslint' },
+  { name: 'eslint' },
+  { name: 'something else', value: 'other' }
+]
 ```
 
 #### validate
