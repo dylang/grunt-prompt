@@ -30,9 +30,9 @@
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.6",
-    "grunt-contrib-nodeunit": "~0.2",
     "grunt": "~0.4.1",
-    "semver": "~2.0.10"
+    "semver": "~2.0.10",
+    "grunt-mocha-cli": "~1.0.6"
   },
   "peerDependencies": {
     "grunt": "~0.4.1"

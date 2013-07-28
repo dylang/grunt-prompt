@@ -20,16 +20,16 @@ module.exports = function (grunt) {
         if (questions) {
 
             questions = questions.map(function(question){
+                // config just made more sense than name, but we accept both
                 question.name = question.config || question.name;
                 return question;
             });
 
-
             var done = this.async();
 
             inquirer.prompt( questions, function( answers ) {
-                _(answers).forEach(function(answer, name){
-                    grunt.config(name, answer);
+                _(answers).forEach(function(answer, configName){
+                    grunt.config(configName, answer);
                 });
                 done();
             });

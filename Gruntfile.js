@@ -14,7 +14,7 @@ var currentVersion = require('./package.json').version;
 module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-nodeunit');
+    grunt.loadNpmTasks('grunt-mocha-cli');
 
     grunt.loadTasks('tasks');
 
@@ -26,8 +26,8 @@ module.exports = function (grunt) {
         jshint: {
             all: [
                 'Gruntfile.js',
-                'tasks/*.js',
-                '<%= nodeunit.tests %>'
+                'tasks/**/*.js',
+                'test/**/*.js'
             ],
             options: {
                 jshintrc: '.jshintrc'
@@ -74,7 +74,9 @@ module.exports = function (grunt) {
                                 var inverseAndZebra = grunt.util._(['inverse', 'zebra']).all(function(val){
                                     return grunt.util._(value).contains(val);
                                 });
-                                if (inverseAndZebra) return 'You can choose Inverse or Zebra but not both';
+                                if (inverseAndZebra) {
+                                    return 'You can choose Inverse or Zebra but not both';
+                                }
                                 return true;
                             }
                         },
@@ -88,7 +90,9 @@ module.exports = function (grunt) {
                             type: 'input',
                             message: 'Text input',
                             validate: function(value) {
-                                if (value === '') return 'A value is required.';
+                                if (value === '') {
+                                    return 'A value is required.';
+                                }
                                 return true;
                             }
                         },
@@ -97,7 +101,9 @@ module.exports = function (grunt) {
                             type: 'password',
                             message: 'Password input',
                             validate: function(value) {
-                                if (value.length < 5) return 'Password should be at least 5 characters.';
+                                if (value.length < 5) {
+                                    return 'Password should be at least 5 characters.';
+                                }
                                 return true;
                             }
                         }
@@ -178,9 +184,11 @@ module.exports = function (grunt) {
             }
         },
 
-        // Unit tests.
-        nodeunit: {
-            tests: ['test/*_test.js']
+        mochacli: {
+            options: {
+                reporter: 'spec'
+            },
+            all: ['test/*.test.js']
         }
     });
 
@@ -218,11 +226,12 @@ module.exports = function (grunt) {
     grunt.registerTask('test',
         [
             'jshint',
-            'prompt'
+            'mochacli'
         ]);
 
     grunt.registerTask('default',
         [
+            'jshint',
             'prompt:examples'
         ]);
 };
