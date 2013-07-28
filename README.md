@@ -1,4 +1,4 @@
-# grunt-prompt 
+# grunt-prompt
 
 > Add interactive UI to your Gruntfile such as lists, checkboxes, text input with filtering, and password fields, all on the command line.
 
