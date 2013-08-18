@@ -13,6 +13,8 @@ var currentVersion = require('./package.json').version;
 
 module.exports = function (grunt) {
 
+
+    grunt.loadNpmTasks('grunt-notify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-mocha-cli');
 
@@ -24,15 +26,14 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         jshint: {
-            all: [
-                'Gruntfile.js',
-                'tasks/**/*.js',
-                'test/*.js'
-            ],
             options: {
                 jshintrc: '.jshintrc',
                 ignores: []
-            }
+            },
+            task: [
+                'Gruntfile.js',
+                'tasks/**/*.js'
+            ]
         },
 
         // Configuration to be run (and then tested).
@@ -111,6 +112,22 @@ module.exports = function (grunt) {
                     ]
                 }
             },
+
+            mochacli: {
+                options: {
+                    questions: [
+                        {
+                            config: 'mochacli.options.reporter',
+                            type: 'list',
+                            message: 'Which Mocha reporter would you like to use?',
+                            default: 'spec',
+                            choices: ['dot', 'spec', 'nyan', 'TAP', 'landing', 'list',
+                                'progress', 'json', 'JSONconv', 'HTMLconv', 'min', 'doc']
+                        }
+                    ]
+                }
+            },
+
             bump: {
                 options: {
                     questions: [
@@ -186,10 +203,15 @@ module.exports = function (grunt) {
         },
 
         mochacli: {
+            src: 'test/**/*.test.js',
             options: {
-                reporter: 'spec'
-            },
-            all: ['test/*.test.js']
+                timeout: 10000,
+                ui: 'bdd',
+                reporter: 'spec',
+                require: [
+                    'chai'
+                ]
+            }
         }
     });
 
@@ -227,6 +249,7 @@ module.exports = function (grunt) {
     grunt.registerTask('test',
         [
             'jshint',
+            'prompt:mochacli',
             'mochacli'
         ]);
 
