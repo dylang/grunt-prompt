@@ -37,10 +37,10 @@ grunt.initConfig({
             type: '<question type>', // list, checkbox, confirm, input, password
             message: 'Question to ask the user',
             default: 'value', // default value if nothing is entered
-            choices: 'Array|Function(answers)',
-            validate: Function(value), // return true if valid, error message if invalid
-            filter:  Function(value), // modify the answer
-            when: Function(answers) // only ask this question when this function returns true
+            choices: 'Array|function(answers)',
+            validate: function(value), // return true if valid, error message if invalid
+            filter:  function(value), // modify the answer
+            when: function(answers) // only ask this question when this function returns true
           }
         ]
       }
