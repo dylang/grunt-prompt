@@ -106,6 +106,7 @@ choices: [
   { name: 'jshint', checked: true },
   { name: 'jslint' },
   { name: 'eslint' },
+  '---', // puts in a non-selectable separator
   { name: 'I like to live dangerously', value: 'none' }
 ]
 ```

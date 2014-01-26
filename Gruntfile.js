@@ -54,6 +54,7 @@ module.exports = function (grunt) {
                                 { name: 'Magenta'.magenta },
                                 { name: 'Red'.red },
                                 { name: 'Yellow'.yellow },
+                                '---',
                                 { name: 'Rainbow'.rainbow }
                             ],
                             filter: String.toLowerCase

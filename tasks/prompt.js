@@ -17,15 +17,29 @@ module.exports = function (grunt) {
 
         var questions = options.questions;
 
+        function addSeparator(choices) {
+            if (!choices) {
+                return choices;
+            }
+
+            return choices.map(function(choice){
+                if (choice === '---') {
+                    return new inquirer.Separator();
+                }
+                return choice;
+            });
+        }
+
+
         if (questions) {
+            var done = this.async();
 
             questions = questions.map(function(question){
                 // config just made more sense than name, but we accept both
                 question.name = question.config || question.name;
+                question.choices = addSeparator(question.choices);
                 return question;
             });
-
-            var done = this.async();
 
             inquirer.prompt( questions, function( answers ) {
                 _(answers).forEach(function(answer, configName){
