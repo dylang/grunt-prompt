@@ -89,9 +89,9 @@ Hint: keep it short, users hate to read.
 
 #### default
 
-Type: `String`/`Array`/`Boolean` depending on `question type` _optional_
+Type: `String`/`Array`/`Boolean`/'function' _optional_
 
-Default value used when the user just bangs Enter.
+Default value used when the user just hits Enter. *If a `value` field is not provided, the filter value must match the `name` exactly.*
 
 #### choices
 
@@ -99,7 +99,7 @@ For `question types 'list' and 'checkbox'`: Type: `array of hashes`
 
  * `name` The label that is displayed in the UI.
  * `value` _optional_ Value returned. When not used the name is used instead.
- * `checked` _optional_ Choosed the option by default. _Only for checkbox._
+ * `checked` _optional_ Choose the option by default. _Only for checkbox._
 
 ```
 choices: [

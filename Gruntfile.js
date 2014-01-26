@@ -51,13 +51,14 @@ module.exports = function (grunt) {
                                 { name: chalk.white('White') },
                                 { name: chalk.grey('Grey') },
                                 '---',
-                                { name: chalk.blue('Blue') },
+                                { name: chalk.blue('Blue'), value: 'blue' },
                                 { name: chalk.cyan('Cyan') },
                                 { name: chalk.green('Green') },
                                 { name: chalk.magenta('Magenta') },
                                 { name: chalk.red('Red') },
                                 { name: chalk.yellow('Yellow') },
                             ],
+                            default: 'blue',
                             filter: function(str) {
                                 return chalk.stripColor(str.toLowerCase());
                             }
@@ -67,11 +68,14 @@ module.exports = function (grunt) {
                             type: 'checkbox',
                             message: 'Choose multiple items, returns an array of values',
                             choices: [
-                                { name: chalk.bold('Bold') },
+                                { name: chalk.bold('Bold'), value: 'bold' },
                                 { name: chalk.italic('Italic') },
-                                { name: chalk.underline('Underline') },
+                                { name: chalk.underline('Underline'), value: 'underline' },
                                 { name: chalk.inverse('Inverse') },
                                 { name: chalk.strikethrough('Strikethrough') }
+                            ],
+                            default: [
+                                'bold', 'underline'
                             ],
                             filter: function(value) {
                                 return _(value)
