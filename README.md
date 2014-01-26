@@ -130,6 +130,12 @@ Type: `function(answers)` _optional_
 
 Choose when this question is asked. Perfect for asking questions based on the results of previous questions.
 
+#### then
+
+Type: `function(results)` _optional_
+
+Runs after all questions have been asked.
+
 ## How to use the results in your Gruntfile
 
 You can also modify how tasks will work by changing options for other tasks.

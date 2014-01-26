@@ -113,7 +113,10 @@ module.exports = function (grunt) {
                                 return true;
                             }
                         }
-                    ]
+                    ],
+                    then: function(){
+                        console.log(chalk.green.bold.underline('Great job!'));
+                    }
                 }
             },
 
@@ -126,7 +129,10 @@ module.exports = function (grunt) {
                             message: 'Just press enter, the result should be the default.',
                             default: 1
                         }
-                    ]
+                    ],
+                    then: function(results){
+                        console.log('results from this test', results);
+                    }
                 }
             },
 

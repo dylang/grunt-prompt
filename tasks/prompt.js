@@ -45,6 +45,9 @@ module.exports = function (grunt) {
                 _(answers).forEach(function(answer, configName){
                     grunt.config(configName, answer);
                 });
+                if (_.isFunction(options.then)) {
+                    options.then(answers);
+                }
                 done();
             });
         }
