@@ -1,56 +1,56 @@
 {
-    "name": "grunt-prompt",
-    "description": "Add interactive console prompts to your Gruntfile such as lists, checkboxes, text input with filtering, and password fields.",
-    "version": "0.1.2",
-    "homepage": "https://github.com/dylang/grunt-prompt",
-    "author": {
-        "name": "Dylan Greene",
-        "email": "dylang@gmail.com",
-        "url": "http://doodleordie.com"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/dylang/grunt-prompt.git"
-    },
-    "bugs": {
-        "url": "https://github.com/dylang/grunt-prompt/issues"
-    },
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "https://github.com/dylang/grunt-prompt/blob/master/LICENSE-MIT"
-        }
-    ],
-    "main": "Gruntfile.js",
-    "engines": {
-        "node": ">= 0.8.0"
-    },
-    "scripts": {
-        "test": "grunt mochacli --stack"
-    },
-    "devDependencies": {
-        "grunt-contrib-jshint": "~0.6",
-        "grunt": "~0.4.1",
-        "semver": "~2.1.0",
-        "grunt-mocha-cli": "~1.0.6",
-        "grunt-notify": "~0.2.10",
-        "chai": "~1.7.2"
-    },
-    "peerDependencies": {
-        "grunt": "~0.4.1"
-    },
-    "keywords": [
-        "gruntplugin",
-        "inquery",
-        "prompt",
-        "gui",
-        "console",
-        "terminal",
-        "UI",
-        "interactive",
-        "questions"
-    ],
-    "dependencies": {
-        "inquirer": "~0.2.1"
+  "name": "grunt-prompt",
+  "description": "Add interactive console prompts to your Gruntfile such as lists, checkboxes, text input with filtering, and password fields.",
+  "version": "0.1.2",
+  "homepage": "https://github.com/dylang/grunt-prompt",
+  "author": {
+    "name": "Dylan Greene",
+    "email": "dylang@gmail.com",
+    "url": "http://doodleordie.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dylang/grunt-prompt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dylang/grunt-prompt/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/dylang/grunt-prompt/blob/master/LICENSE-MIT"
     }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt mochacli --stack"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt": "~0.4.1",
+    "semver": "~2.2.1",
+    "grunt-mocha-cli": "~1.5.0",
+    "grunt-notify": "~0.2.10",
+    "chai": "~1.8.1"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "keywords": [
+    "gruntplugin",
+    "inquery",
+    "prompt",
+    "gui",
+    "console",
+    "terminal",
+    "UI",
+    "interactive",
+    "questions"
+  ],
+  "dependencies": {
+    "inquirer": "~0.4.0"
+  }
 }
