@@ -114,6 +114,19 @@ module.exports = function (grunt) {
                 }
             },
 
+            test: {
+                options: {
+                    questions: [
+                        {
+                            config: 'test',
+                            type: 'input',
+                            message: 'Just press enter, the result should be the default.',
+                            default: 1
+                        }
+                    ]
+                }
+            },
+
             mochacli: {
                 options: {
                     questions: [
@@ -216,6 +229,20 @@ module.exports = function (grunt) {
         }
     });
 
+    grunt.registerTask('results', function(){
+        var _ = require('lodash');
+        var configs = _(grunt.config('prompt'))
+            .pluck('options')
+            .pluck('questions')
+            .flatten()
+            .pluck('config')
+            .each(function(key){
+                if (!_.isUndefined(grunt.config(key))) {
+                    console.log(key + ':\t', grunt.config(key));
+                }
+            });
+    });
+
     // Fake Grunt Bump task
     grunt.registerTask('bump', '', function () {
         if (grunt.config('bump.increment') === 'custom') {
@@ -257,6 +284,7 @@ module.exports = function (grunt) {
     grunt.registerTask('default',
         [
             'jshint',
-            'prompt:examples'
+            'prompt:examples',
+            'results'
         ]);
 };
