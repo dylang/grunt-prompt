@@ -10,6 +10,8 @@
 
 var semver = require('semver');
 var currentVersion = require('./package.json').version;
+var chalk = require('chalk');
+var _ = require('lodash');
 
 module.exports = function (grunt) {
 
@@ -46,41 +48,38 @@ module.exports = function (grunt) {
                             type: 'list',
                             message: 'Choose an item from a list, returns the value',
                             choices: [
-                                { name: 'White'.white },
-                                { name: 'Grey'.grey },
-                                { name: 'Blue'.blue },
-                                { name: 'Cyan'.cyan },
-                                { name: 'Green'.green },
-                                { name: 'Magenta'.magenta },
-                                { name: 'Red'.red },
-                                { name: 'Yellow'.yellow },
+                                { name: chalk.white('White') },
+                                { name: chalk.grey('Grey') },
                                 '---',
-                                { name: 'Rainbow'.rainbow }
+                                { name: chalk.blue('Blue') },
+                                { name: chalk.cyan('Cyan') },
+                                { name: chalk.green('Green') },
+                                { name: chalk.magenta('Magenta') },
+                                { name: chalk.red('Red') },
+                                { name: chalk.yellow('Yellow') },
                             ],
-                            filter: String.toLowerCase
+                            filter: function(str) {
+                                return chalk.stripColor(str.toLowerCase());
+                            }
                         },
                         {
                             config: 'echo.checkbox',
                             type: 'checkbox',
                             message: 'Choose multiple items, returns an array of values',
                             choices: [
-                                { name: 'Bold'.bold },
-                                { name: 'Italic'.italic },
-                                { name: 'Underline'.underline },
-                                { name: 'Inverse'.inverse, value: 'inverse' },
-                                { name: 'Zebra'.zebra, value: 'zebra' }
+                                { name: chalk.bold('Bold') },
+                                { name: chalk.italic('Italic') },
+                                { name: chalk.underline('Underline') },
+                                { name: chalk.inverse('Inverse') },
+                                { name: chalk.strikethrough('Strikethrough') }
                             ],
                             filter: function(value) {
-                                return grunt.util._(value).map(String.toLowerCase);
-                            },
-                            validate: function(value) {
-                                var inverseAndZebra = grunt.util._(['inverse', 'zebra']).all(function(val){
-                                    return grunt.util._(value).contains(val);
-                                });
-                                if (inverseAndZebra) {
-                                    return 'You can choose Inverse or Zebra but not both';
-                                }
-                                return true;
+                                return _(value)
+                                    .map(chalk.stripColor)
+                                    .map(function(str){
+                                        return str.toLowerCase();
+                                    })
+                                    .value();
                             }
                         },
                         {
@@ -229,17 +228,15 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('results', function(){
-        var _ = require('lodash');
-        var configs = _(grunt.config('prompt'))
+    grunt.registerTask('results', 'show results from grunt-prompt', function(subtask){
+        _(grunt.config('prompt'))
+            .pick(subtask || _.constant(true))
             .pluck('options')
             .pluck('questions')
             .flatten()
             .pluck('config')
             .each(function(key){
-                if (!_.isUndefined(grunt.config(key))) {
-                    console.log(key + ':\t', grunt.config(key));
-                }
+                console.log(key + ':\t', grunt.config(key));
             });
     });
 
@@ -285,6 +282,6 @@ module.exports = function (grunt) {
         [
             'jshint',
             'prompt:examples',
-            'results'
+            'results:examples'
         ]);
 };
