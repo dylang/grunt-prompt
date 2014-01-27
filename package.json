@@ -28,6 +28,12 @@
   "scripts": {
     "test": "grunt mochacli --stack"
   },
+  "dependencies": {
+    "inquirer": "~0.4.0"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  },
   "devDependencies": {
     "lodash": "~2.4.1",
     "grunt-contrib-jshint": "~0.8.0",
@@ -37,9 +43,6 @@
     "grunt-notify": "~0.2.10",
     "chai": "~1.8.1",
     "chalk": "~0.4.0"
-  },
-  "peerDependencies": {
-    "grunt": "~0.4.1"
   },
   "keywords": [
     "gruntplugin",
@@ -51,8 +54,5 @@
     "UI",
     "interactive",
     "questions"
-  ],
-  "dependencies": {
-    "inquirer": "~0.4.0"
-  }
+  ]
 }
