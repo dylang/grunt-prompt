@@ -258,18 +258,18 @@ module.exports = function (grunt) {
             grunt.log.ok('Bumping up ' + grunt.config('bump.increment').yellow + ' version number.');
         }
 
-        if (grunt.util._(grunt.config('bump.files')).contains('package')) {
+        if (_(grunt.config('bump.files')).contains('package')) {
             grunt.log.ok('Updating ' + 'package.json'.yellow + '.');
         }
 
-        if (grunt.util._(grunt.config('bump.files')).contains('bower')) {
+        if (_(grunt.config('bump.files')).contains('bower')) {
             if (!grunt.file.isFile('bower.json')) {
                 grunt.log.ok('Creating ' + 'bower.json'.yellow + '.');
             }
             grunt.log.ok('Updating ' + 'bower.json'.yellow + '.');
         }
 
-        if (grunt.util._(grunt.config('bump.files')).contains('git')) {
+        if (_(grunt.config('bump.files')).contains('git')) {
             grunt.log.ok('Updating ' + 'git tag'.yellow + '.');
         }
     });
