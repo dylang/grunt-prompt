@@ -12,8 +12,7 @@ module.exports = function (grunt) {
     grunt.registerMultiTask('prompt', 'Interactive command line user prompts.', function () {
 
         var inquirer = require('inquirer'),
-            options = this.options(),
-            _ = grunt.util._;
+            options = this.options();
 
         var questions = options.questions;
 
@@ -42,10 +41,11 @@ module.exports = function (grunt) {
             });
 
             inquirer.prompt( questions, function( answers ) {
-                _(answers).forEach(function(answer, configName){
+                for (var configName in answers) {
+                    var answer = answers[configName];
                     grunt.config(configName, answer);
-                });
-                if (_.isFunction(options.then)) {
+                }
+                if (typeof options.then === 'function') {
                     options.then(answers);
                 }
                 done();
