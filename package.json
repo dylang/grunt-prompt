@@ -41,7 +41,7 @@
     "semver": "~2.2.1",
     "grunt-mocha-cli": "~1.5.0",
     "grunt-notify": "~0.2.10",
-    "chai": "~1.8.1",
+    "chai": "~1.9.0",
     "chalk": "~0.4.0"
   },
   "keywords": [
