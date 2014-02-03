@@ -18,7 +18,7 @@ module.exports = function (grunt) {
         var questions = options.questions;
 
         function addSeparator(choices) {
-            if (!choices) {
+            if (!choices || typeof choices == 'function') {
                 return choices;
             }
 
