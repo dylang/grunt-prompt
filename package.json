@@ -29,7 +29,6 @@
     "test": "grunt mochacli --stack"
   },
   "devDependencies": {
-    "lodash": "~2.4.1",
     "grunt-contrib-jshint": "~0.8.0",
     "grunt": "~0.4.1",
     "semver": "~2.2.1",
