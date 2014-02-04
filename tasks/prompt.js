@@ -13,12 +13,12 @@ module.exports = function (grunt) {
 
         var inquirer = require('inquirer'),
             options = this.options(),
-            _ = grunt.util._;
+            _ = require('lodash');
 
         var questions = options.questions;
 
         function addSeparator(choices) {
-            if (!choices) {
+            if (!choices || _.isFunction(choices)) {
                 return choices;
             }
 
