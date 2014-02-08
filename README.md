@@ -1,25 +1,29 @@
-# grunt-prompt [![Build Status](https://travis-ci.org/dylang/grunt-prompt.png?branch=master)](https://travis-ci.org/dylang/grunt-prompt)
+## grunt-prompt [![NPM version](https://badge.fury.io/js/grunt-prompt.png)](http://badge.fury.io/js/grunt-prompt)  [![Build Status](https://travis-ci.org/dylang/grunt-prompt.png)](https://travis-ci.org/dylang/grunt-prompt) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
-> Add interactive UI to your Gruntfile such as lists, checkboxes, text input with filtering, and password fields, all on the command line.
+> Interactive prompt for your Grunt config using console checkboxes, text input with filtering, password fields.
 
-![grunt-prompt-example](https://f.cloud.github.com/assets/51505/867636/e727abfc-f717-11e2-997e-6b97e24593c3.gif)
 
-`Grunt-prompt`'s UI is powered by the amazing [Inquirer](https://github.com/SBoudrias/Inquirer.js), a project created by Simon Boudrias.
+### Getting Started
 
-## Getting Started
-This plugin requires Grunt `~0.4.1`
+This plugin recommends Grunt `0.4.1` or newer.
 
-```shell
+### Installing
+
+```bash
 npm install grunt-prompt --save-dev
 ```
 
-One the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
+Once that's done, add this line to your project's `Gruntfile.js`:
 
 ```js
 grunt.loadNpmTasks('grunt-prompt');
 ```
 
-## grunt-prompt
+
+`Grunt-prompt`'s UI is powered by the amazing [Inquirer](https://github.com/SBoudrias/Inquirer.js), a project created by Simon Boudrias.
+
+![grunt-prompt-example](https://f.cloud.github.com/assets/51505/867636/e727abfc-f717-11e2-997e-6b97e24593c3.gif)
+
 
 ### Overview
 In your project's Gruntfile, add a section named `prompt` to the data object passed into `grunt.initConfig()`.
@@ -49,9 +53,10 @@ grunt.initConfig({
 })
 ```
 
-### Options
 
-#### config
+#### Options
+
+##### config
 
 Type: `String` _required_
 
@@ -61,7 +66,7 @@ This is used for three things:
  * The key in the resulting `answers` object: `if (answers['jshint.allFiles.reporter'] === 'custom') {...`
  * It can be an abitrary value read using `grunt.config`: `grunt.config('jshint.allFiles.reporter')`
 
-#### type
+##### type
 
 Type: `String` _required_
 
@@ -79,7 +84,7 @@ Here's an example of each type:
 
 The documentation for **Inquiry** has [more details about type](https://github.com/SBoudrias/Inquirer.js#prompts-type) as well as additional typess.
 
-#### message
+##### message
 
 Type: `String` _required_
 
@@ -87,13 +92,13 @@ Question to ask the user.
 
 Hint: keep it short, users hate to read.
 
-#### default
+##### default
 
 Type: `String`/`Array`/`Boolean`/'function' _optional_
 
 Default value used when the user just hits Enter. *If a `value` field is not provided, the filter value must match the `name` exactly.*
 
-#### choices
+##### choices
 
 For `question types 'list' and 'checkbox'`: Type: `array of hashes`
 
@@ -111,32 +116,33 @@ choices: [
 ]
 ```
 
-#### validate
+##### validate
 
 Type: `function(value)` _optional_
 
 Return `true` if it is valid (true `true`, not a truthy value).
 Return `string` message if it is not valid.
 
-#### filter
+##### filter
 
 Type: `function(value)` _optional_
 
 Use a modified version of the input for the answer. Useful for stripping extra characters, converting strings to integers.
 
-#### when
+##### when
 
 Type: `function(answers)` _optional_
 
 Choose when this question is asked. Perfect for asking questions based on the results of previous questions.
 
-#### then
+##### then
 
 Type: `function(results)` _optional_
 
 Runs after all questions have been asked.
 
-## How to use the results in your Gruntfile
+
+### How to use the results in your Gruntfile
 
 You can also modify how tasks will work by changing options for other tasks.
 You do not need to write code to do this, it's all in the `config` var.
@@ -184,7 +190,7 @@ $ grunt test
 ![prompt-mocha](https://f.cloud.github.com/assets/51505/983227/aabe4b6e-084a-11e3-94cd-514371c24059.gif)
 
 
-## How can values be accessed from my own code?
+### How can values be accessed from my own code?
 
 This `config` value is accessible to all other `grunt` tasks via `grunt.config('<config name>')`.
 
@@ -199,6 +205,7 @@ Then later on in your custom task can access it like this:
 ```js
 var validation = grunt.config('validation');
 ```
+
 
 ### Usage Examples
 
@@ -287,12 +294,51 @@ prompt: {
 }
 ```
 
-## Release History
+
+
+
+
+### Release History
 * **0.2.1** - 4 Feb 2014 - Fix bug when using a function to provide choices.
 * **0.2.0** - 26 Jan 2014 - Added `then` option which runs after questions. Improved docs.
 * **0.1.1** - 27 July 2013 - Some documentation cleanup, better screenshots, new example code in the gruntfile, reomved unused tests.
 * **0.1.0** - 18 July 2013 - First version, after an exhausting but fun day with the family at Hershey Park.
 
-## License
 
-MIT
+
+
+### About the Author
+
+Dylan is a senior JavaScript developer and tech lead at [Opower](http://opower.com), co-creator of [Doodle or Die](http://doodleordie.com), and father of two awesome kids.
+
+Here are some other Node modules Dylan has created:
+
+| Name | Description | Github Stars | Npm Installs |
+|---|---|--:|--:|
+| [grunt-notify](https://github.com/dylang/grunt-notify) | Automatic desktop notifications for Grunt errors and warnings using Growl for OS X or Windows, Mountain Lion and Mavericks Notification Center, and Notify-Send. | 619 | 52,208 |
+| [rss](https://github.com/dylang/node-rss) | RSS feed generator. A really simple API to add RSS feeds to any project. | 177 | 98,802 |
+| [shortid](https://github.com/dylang/shortid) | Amazingly short non-sequential url-friendly unique id generator. | 129 | 22,984 |
+| [xml](https://github.com/dylang/node-xml) | Fast and simple xml generator. Supports attributes, CDATA, etc. Includes tests and examples. | 35 | 180,625 |
+| [anthology](https://github.com/dylang/anthology) | Module information and stats for any @npmjs user | _New!_ | _TBD_ |
+| [grunt-attention](https://github.com/dylang/grunt-attention) | Display attention-grabbing messages in the terminal | _New!_ | 336 |
+| [observatory](https://github.com/dylang/observatory) | Beautiful UI for showing tasks running on the command line. | _New!_ | 81 |
+| [changelog](https://github.com/dylang/changelog) | Command line tool (and Node module) that generates a changelog in color output, markdown, or json for modules in npmjs.org's registry as well as any public github.com repo. | 51 | 2,081 |
+| [logging](https://github.com/dylang/logging) | Super sexy color console logging with cluster support. | 21 | 8,793 |
+| [grunt-cat](https://github.com/dylang/grunt-cat) | Echo a file to the terminal. Works with text, figlets, ascii art, and full-color ansi. | _New!_ | 396 |
+
+_Data collected on Saturday, February 8, 2014 using [anthology](https://github.com/dylang/anthology)._
+
+
+### License
+Copyright (c) 2014 Dylan Greene, contributors.
+Released under the MIT license
+
+***
+_Generated by [grunt-readme](https://github.com/assemble/grunt-readme) using [grunt-templates-dylang](https://github.com/dylang/grunt-templates-dylang) on Saturday, February 8, 2014._
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dylang/grunt-prompt/trend.png)](https://bitdeli.com/free "Bitdeli Badge") [![Google Analytics](https://ga-beacon.appspot.com/UA-4820261-3/dylang/grunt-prompt)](https://github.com/igrigorik/ga-beacon)
+
+
+[grunt]: http://gruntjs.com/
+[Getting Started]: https://github.com/gruntjs/grunt/blob/devel/docs/getting_started.md
+[package.json]: https://npmjs.org/doc/json.html

@@ -16,12 +16,6 @@ var _ = require('lodash');
 module.exports = function (grunt) {
 
 
-    grunt.loadNpmTasks('grunt-notify');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-mocha-cli');
-
-    grunt.loadTasks('tasks');
-
     // Project configuration.
     grunt.initConfig({
 
@@ -294,4 +288,9 @@ module.exports = function (grunt) {
             'prompt:examples',
             'results:examples'
         ]);
+
+    require('load-grunt-tasks')(grunt);
+
+    grunt.loadTasks('tasks');
+
 };
