@@ -1,6 +1,6 @@
 ## Usage Examples
 
-{%= screenshot('grunt-prompt with grunt-bump', 'https://f.cloud.github.com/assets/51505/867601/b3200cb6-f710-11e2-89da-675c831c218a.gif') %}
+{%= screenshot('grunt-prompt with grunt-bump', 'https://f.cloud.github.com/assets/51505/2119082/78171246-9142-11e3-970a-f64f2002ad4e.png') %}
 
 This is an example of how `grunt-prompt` for something like [grunt-bump](https://github.com/vojtajina/grunt-bump) which makes it easy to
 update your project's version in the `package.json`, `bower.json`, and `git tag`.
