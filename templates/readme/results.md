@@ -43,8 +43,7 @@ And run it:
 $ grunt test
 ```
 
-![prompt-mocha](https://f.cloud.github.com/assets/51505/983227/aabe4b6e-084a-11e3-94cd-514371c24059.gif)
-
+{%= screenshot('grunt-prompt setting up Mocha', 'https://f.cloud.github.com/assets/51505/983227/aabe4b6e-084a-11e3-94cd-514371c24059.gif') %}
 
 ## How can values be accessed from my own code?
 

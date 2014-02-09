@@ -24,9 +24,9 @@ Type of question to ask:
 
 Here's an example of each type:
 
-![grunt-prompt-example](https://f.cloud.github.com/assets/51505/867636/e727abfc-f717-11e2-997e-6b97e24593c3.gif)
+{%= screenshot('grunt-prompt example', 'https://f.cloud.github.com/assets/51505/867636/e727abfc-f717-11e2-997e-6b97e24593c3.gif') %}
 
-The documentation for **Inquiry** has [more details about type](https://github.com/SBoudrias/Inquirer.js#prompts-type) as well as additional typess.
+The documentation for [Inquiry](https://github.com/SBoudrias/Inquirer.js) has [more details about type](https://github.com/SBoudrias/Inquirer.js#prompts-type) as well as additional typess.
 
 #### message
 

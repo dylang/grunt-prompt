@@ -1,6 +1,14 @@
+<!---
+
+This file was automatically generated.
+
+Use `grunt readme` to regenerate.
+
+--->
 ## grunt-prompt [![NPM version](https://badge.fury.io/js/grunt-prompt.png)](http://badge.fury.io/js/grunt-prompt)  [![Build Status](https://travis-ci.org/dylang/grunt-prompt.png)](https://travis-ci.org/dylang/grunt-prompt) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 > Interactive prompt for your Grunt config using console checkboxes, text input with filtering, password fields.
+
 
 
 ### Getting Started
@@ -20,9 +28,12 @@ grunt.loadNpmTasks('grunt-prompt');
 ```
 
 
+
 `Grunt-prompt`'s UI is powered by the amazing [Inquirer](https://github.com/SBoudrias/Inquirer.js), a project created by Simon Boudrias.
 
-![grunt-prompt-example](https://f.cloud.github.com/assets/51505/867636/e727abfc-f717-11e2-997e-6b97e24593c3.gif)
+| ![grunt-prompt in action](https://f.cloud.github.com/assets/51505/867636/e727abfc-f717-11e2-997e-6b97e24593c3.gif "grunt-prompt in action") |
+|:-------------:|
+| grunt-prompt in action |
 
 
 ### Overview
@@ -80,9 +91,11 @@ Type of question to ask:
 
 Here's an example of each type:
 
-![grunt-prompt-example](https://f.cloud.github.com/assets/51505/867636/e727abfc-f717-11e2-997e-6b97e24593c3.gif)
+| ![grunt-prompt example](https://f.cloud.github.com/assets/51505/867636/e727abfc-f717-11e2-997e-6b97e24593c3.gif "grunt-prompt example") |
+|:-------------:|
+| grunt-prompt example |
 
-The documentation for **Inquiry** has [more details about type](https://github.com/SBoudrias/Inquirer.js#prompts-type) as well as additional typess.
+The documentation for [Inquiry](https://github.com/SBoudrias/Inquirer.js) has [more details about type](https://github.com/SBoudrias/Inquirer.js#prompts-type) as well as additional typess.
 
 ##### message
 
@@ -187,8 +200,10 @@ And run it:
 $ grunt test
 ```
 
-![prompt-mocha](https://f.cloud.github.com/assets/51505/983227/aabe4b6e-084a-11e3-94cd-514371c24059.gif)
-
+![]()
+| ![grunt-prompt setting up Mocha](https://f.cloud.github.com/assets/51505/983227/aabe4b6e-084a-11e3-94cd-514371c24059.gif "grunt-prompt setting up Mocha") |
+|:-------------:|
+| grunt-prompt setting up Mocha |
 
 ### How can values be accessed from my own code?
 
@@ -209,7 +224,9 @@ var validation = grunt.config('validation');
 
 ### Usage Examples
 
-![grunt-prompt-example-bump](https://f.cloud.github.com/assets/51505/867601/b3200cb6-f710-11e2-89da-675c831c218a.gif)
+| ![grunt-prompt with grunt-bump](https://f.cloud.github.com/assets/51505/867601/b3200cb6-f710-11e2-89da-675c831c218a.gif "grunt-prompt with grunt-bump") |
+|:-------------:|
+| grunt-prompt with grunt-bump |
 
 This is an example of how `grunt-prompt` for something like [grunt-bump](https://github.com/vojtajina/grunt-bump) which makes it easy to
 update your project's version in the `package.json`, `bower.json`, and `git tag`.
@@ -311,36 +328,47 @@ prompt: {
 
 ### About the Author
 
-Dylan is a senior JavaScript developer and tech lead at [Opower](http://opower.com), co-creator of [Doodle or Die](http://doodleordie.com), and father of two awesome kids.
+Hello fellow developer! My name is [Dylan Greene](https://github.com/dylang). When
+not overwhelmed with my two kids I enjoy contributing to the open source community.
+I'm a tech lead at [Opower](http://opower.com). I lead a team using Grunt and Angular to build software that
+successfully helps people like us use less power.
+Not too long ago I co-created [Doodle or Die](http://doodleordie.com), a hilarious web game with millions of
+doodles that won us Node Knockout for the "most fun" category.
+I'm [dylang](https://twitter.com/dylang) on Twitter and other places.
 
-Here are some other Node modules Dylan has created:
+Some of my other Node projects:
 
 | Name | Description | Github Stars | Npm Installs |
 |---|---|--:|--:|
-| [grunt-notify](https://github.com/dylang/grunt-notify) | Automatic desktop notifications for Grunt errors and warnings using Growl for OS X or Windows, Mountain Lion and Mavericks Notification Center, and Notify-Send. | 619 | 52,208 |
-| [rss](https://github.com/dylang/node-rss) | RSS feed generator. A really simple API to add RSS feeds to any project. | 177 | 98,802 |
-| [shortid](https://github.com/dylang/shortid) | Amazingly short non-sequential url-friendly unique id generator. | 129 | 22,984 |
-| [xml](https://github.com/dylang/node-xml) | Fast and simple xml generator. Supports attributes, CDATA, etc. Includes tests and examples. | 35 | 180,625 |
-| [anthology](https://github.com/dylang/anthology) | Module information and stats for any @npmjs user | _New!_ | _TBD_ |
-| [grunt-attention](https://github.com/dylang/grunt-attention) | Display attention-grabbing messages in the terminal | _New!_ | 336 |
-| [observatory](https://github.com/dylang/observatory) | Beautiful UI for showing tasks running on the command line. | _New!_ | 81 |
-| [changelog](https://github.com/dylang/changelog) | Command line tool (and Node module) that generates a changelog in color output, markdown, or json for modules in npmjs.org's registry as well as any public github.com repo. | 51 | 2,081 |
-| [logging](https://github.com/dylang/logging) | Super sexy color console logging with cluster support. | 21 | 8,793 |
-| [grunt-cat](https://github.com/dylang/grunt-cat) | Echo a file to the terminal. Works with text, figlets, ascii art, and full-color ansi. | _New!_ | 396 |
+| [`grunt-notify`](https://github.com/dylang/grunt-notify) | Automatic desktop notifications for Grunt errors and warnings using Growl for OS X or Windows, Mountain Lion and Mavericks Notification Center, and Notify-Send. | 619 | 52,208 |
+| [`rss`](https://github.com/dylang/node-rss) | RSS feed generator. A really simple API to add RSS feeds to any project. | 177 | 98,802 |
+| [`shortid`](https://github.com/dylang/shortid) | Amazingly short non-sequential url-friendly unique id generator. | 129 | 22,984 |
+| [`xml`](https://github.com/dylang/node-xml) | Fast and simple xml generator. Supports attributes, CDATA, etc. Includes tests and examples. | 35 | 180,625 |
+| [`anthology`](https://github.com/dylang/anthology) | Module information and stats for any @npmjs user | _New!_ | _TBD_ |
+| [`grunt-attention`](https://github.com/dylang/grunt-attention) | Display attention-grabbing messages in the terminal | _New!_ | 336 |
+| [`observatory`](https://github.com/dylang/observatory) | Beautiful UI for showing tasks running on the command line. | _New!_ | 81 |
+| [`changelog`](https://github.com/dylang/changelog) | Command line tool (and Node module) that generates a changelog in color output, markdown, or json for modules in npmjs.org's registry as well as any public github.com repo. | 51 | 2,081 |
+| [`logging`](https://github.com/dylang/logging) | Super sexy color console logging with cluster support. | 21 | 8,793 |
+| [`grunt-cat`](https://github.com/dylang/grunt-cat) | Echo a file to the terminal. Works with text, figlets, ascii art, and full-color ansi. | _New!_ | 396 |
 
-_Data collected on Saturday, February 8, 2014 using [anthology](https://github.com/dylang/anthology)._
+_This list was generated using [anthology](https://github.com/dylang/anthology)._
 
 
 ### License
 Copyright (c) 2014 Dylan Greene, contributors.
-Released under the MIT license
+
+Released under the [MIT license](https://tldrlegal.com/license/mit-license).
+
+Screenshots are [CC BY-SA](http://creativecommons.org/licenses/by-sa/4.0/) (Attribution-ShareAlike).
 
 ***
-_Generated by [grunt-readme](https://github.com/assemble/grunt-readme) using [grunt-templates-dylang](https://github.com/dylang/grunt-templates-dylang) on Saturday, February 8, 2014._
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dylang/grunt-prompt/trend.png)](https://bitdeli.com/free "Bitdeli Badge") [![Google Analytics](https://ga-beacon.appspot.com/UA-4820261-3/dylang/grunt-prompt)](https://github.com/igrigorik/ga-beacon)
+_Generated using [grunt-readme](https://github.com/assemble/grunt-readme) with [grunt-templates-dylang](https://github.com/dylang/grunt-templates-dylang) on Saturday, February 8, 2014._ [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dylang/grunt-prompt/trend.png)](https://bitdeli.com/free "Bitdeli Badge") [![Google Analytics](https://ga-beacon.appspot.com/UA-4820261-3/dylang/grunt-prompt)](https://github.com/igrigorik/ga-beacon)
 
 
-[grunt]: http://gruntjs.com/
-[Getting Started]: https://github.com/gruntjs/grunt/blob/devel/docs/getting_started.md
-[package.json]: https://npmjs.org/doc/json.html
+<!---
+
+This file was automatically generated.
+
+Use `grunt readme` to regenerate.
+
+--->
