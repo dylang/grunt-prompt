@@ -9,6 +9,13 @@ Use `grunt readme` to regenerate.
 
 > Interactive prompt for your Grunt config using console checkboxes, text input with filtering, password fields.
 
+[![grunt-prompt](https://nodei.co/npm/grunt-prompt.png?downloads=true "grunt-prompt")](https://nodei.co/npm/grunt-prompt)
+
+
+| ![grunt-prompt in action](https://f.cloud.github.com/assets/51505/867636/e727abfc-f717-11e2-997e-6b97e24593c3.gif "grunt-prompt in action") |
+|:-------------:|
+| grunt-prompt in action |
+
 
 
 ### Getting Started
@@ -361,7 +368,7 @@ Released under the [MIT license](https://tldrlegal.com/license/mit-license).
 Screenshots are [CC BY-SA](http://creativecommons.org/licenses/by-sa/4.0/) (Attribution-ShareAlike).
 
 ***
-_Generated using [grunt-readme](https://github.com/assemble/grunt-readme) with [grunt-templates-dylang](https://github.com/dylang/grunt-templates-dylang) on Saturday, February 8, 2014._ [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dylang/grunt-prompt/trend.png)](https://bitdeli.com/free "Bitdeli Badge") [![Google Analytics](https://ga-beacon.appspot.com/UA-4820261-3/dylang/grunt-prompt)](https://github.com/igrigorik/ga-beacon)
+_Generated using [grunt-readme](https://github.com/assemble/grunt-readme) with [grunt-templates-dylang](https://github.com/dylang/grunt-templates-dylang) on Sunday, February 9, 2014._ [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dylang/grunt-prompt/trend.png)](https://bitdeli.com/free "Bitdeli Badge") [![Google Analytics](https://ga-beacon.appspot.com/UA-4820261-3/dylang/grunt-prompt)](https://github.com/igrigorik/ga-beacon)
 
 
 <!---
