@@ -32,6 +32,12 @@ module.exports = function (grunt) {
             ]
         },
 
+        specialVariable: 'a special thing',
+
+        specialFunction: function () {
+            return 'a dynamic value [' + new Date() + ']';
+        },
+
         // Configuration to be run (and then tested).
         prompt: {
             examples: {
@@ -216,6 +222,22 @@ module.exports = function (grunt) {
                         }
                     ]
                 }
+            },
+            dynamic: {
+                options: {
+                    questions: [
+                        {
+                            config: 'echo.dynamic',
+                            type: 'input',
+                            message: function () {
+                                var specialVariable = grunt.config('specialVariable'),
+                                    specialFunction = grunt.config('specialFunction');
+
+                                return 'You can use ' + chalk.yellow(specialVariable) + ' and even ' + chalk.red(specialFunction()) + ' in your questions';
+                            }
+                        },
+                    ]
+                }
             }
         },
 
@@ -280,6 +302,12 @@ module.exports = function (grunt) {
             'jshint',
             'prompt:mochacli',
             'mochacli'
+        ]);
+
+    grunt.registerTask('dynamic',
+        [
+            'prompt:dynamic',
+            'results:dynamic'
         ]);
 
     grunt.registerTask('default',

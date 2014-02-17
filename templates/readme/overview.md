@@ -12,7 +12,7 @@ grunt.initConfig({
           {
             config: 'config.name', // arbitray name or config for any other grunt task
             type: '<question type>', // list, checkbox, confirm, input, password
-            message: 'Question to ask the user',
+            message: 'String|function()', // Question to ask the user, function needs to return a string,
             default: 'value', // default value if nothing is entered
             choices: 'Array|function(answers)',
             validate: function(value), // return true if valid, error message if invalid
