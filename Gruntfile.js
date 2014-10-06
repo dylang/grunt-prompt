@@ -238,6 +238,28 @@ module.exports = function (grunt) {
                         },
                     ]
                 }
+            },
+            separator: {
+                options: {
+                    questions: [
+                        {
+                            config: 'separator',
+                            type: 'list',
+                            message: 'List of choices with custom Separator',
+                            choices: [
+                                chalk.bold.red('HEADING'),
+                                {name: 'Label 1'},
+                                {name: 'Label 2'},
+                                '',
+                                {name: 'Label 3'},
+                                {name: 'Label 4'},
+                                '---',
+                                {name: 'Label 5'},
+                                {name: 'Label 6'}
+                            ]
+                        }
+                    ]
+                }
             }
         },
 
