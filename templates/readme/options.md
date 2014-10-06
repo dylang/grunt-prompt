@@ -8,7 +8,7 @@ This is used for three things:
 
  * It will set or overwrite the config of other Grunt tasks: `config: 'jshint.allFiles.reporter'`
  * The key in the resulting `answers` object: `if (answers['jshint.allFiles.reporter'] === 'custom') {...`
- * It can be an abitrary value read using `grunt.config`: `grunt.config('jshint.allFiles.reporter')`
+ * It can be an arbitrary value read using `grunt.config`: `grunt.config('jshint.allFiles.reporter')`
 
 #### type
 
@@ -55,7 +55,7 @@ choices: [
   { name: 'jshint', checked: true },
   { name: 'jslint' },
   { name: 'eslint' },
-  '---', // puts in a non-selectable separator
+  '---', // puts in a non-selectable separator. Can be a string or '---' for default.
   { name: 'I like to live dangerously', value: 'none' }
 ]
 ```

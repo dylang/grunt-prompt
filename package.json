@@ -1,7 +1,7 @@
 {
   "name": "grunt-prompt",
   "description": "Interactive prompt for your Grunt config using console checkboxes, text input with filtering, password fields.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "homepage": "https://github.com/dylang/grunt-prompt",
   "author": {
     "name": "Dylan Greene",
@@ -29,15 +29,15 @@
     "test": "grunt mochacli --stack"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "~0.8.0",
-    "grunt": "~0.4.1",
-    "semver": "~2.2.1",
+    "chai": "^1.9.0",
+    "chalk": "^0.5.1",
+    "grunt": "^0.4.1",
+    "grunt-contrib-jshint": "^0.10.0",
     "grunt-mocha-cli": "^1.6.0",
-    "grunt-notify": "~0.2.10",
-    "chai": "~1.9.0",
-    "chalk": "~0.4.0",
-    "grunt-templates-dylang": "~0.1.0",
-    "load-grunt-tasks": "^0.4.0"
+    "grunt-notify": "^0.3.1",
+    "grunt-templates-dylang": "^1.0.0",
+    "load-grunt-tasks": "^0.6.0",
+    "semver": "^4.0.3"
   },
   "peerDependencies": {
     "grunt": "~0.4.1"
@@ -54,7 +54,7 @@
     "questions"
   ],
   "dependencies": {
-    "inquirer": "~0.4.0",
+    "inquirer": "^0.8.0",
     "lodash": "~2.4.1"
   }
 }

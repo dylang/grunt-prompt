@@ -144,8 +144,20 @@ module.exports = function (grunt) {
                             type: 'list',
                             message: 'Which Mocha reporter would you like to use?',
                             default: 'spec',
-                            choices: ['dot', 'spec', 'nyan', 'TAP', 'landing', 'list',
-                                'progress', 'json', 'JSONconv', 'HTMLconv', 'min', 'doc']
+                            choices: [
+                                { name: 'dot' },
+                                { name: 'spec' },
+                                { name: 'nyan' },
+                                { name: 'TAP' },
+                                { name: 'landing' },
+                                { name: 'list' },
+                                { name: 'progress' },
+                                { name: 'json' },
+                                { name: 'JSONconv' },
+                                { name: 'HTMLconv' },
+                                { name: 'min' },
+                                { name: 'doc' }
+                                ]
                         }
                     ]
                 }
