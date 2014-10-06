@@ -23,8 +23,8 @@ module.exports = function (grunt) {
             }
 
             return choices.map(function(choice){
-                if (typeof choice === 'string') {
-                    return new inquirer.Separator((choice === '---' || choice.length === 0) ? null : choice);
+                if (choice === '---' || !choice || (choice && choice.separator)) {
+                    return new inquirer.Separator(choice && choice.separator);
                 }
                 return choice;
             });

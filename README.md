@@ -317,6 +317,8 @@ prompt: {
 
 
 ### Release History
+* **1.2.1** - 4 Oct 2014 - Separator can be '' or { separator: 'any string' }. Fixed it so choices can be strings again.
+* **1.2.0** - 4 Oct 2014 - Separator in choices can be a falsey value or string
 * **1.1.0** - 4 Mar 2014 - Messages can be functions instead of strings for dynamic questions.
 * **1.0.0** - 4 Feb 2014 - Dropping support for Node 0.8.
 * **0.2.2** - 4 Feb 2014 - Updated readme to make it auto-generated.
@@ -343,10 +345,10 @@ Some of my other Node projects:
 | Name | Description | Github Stars | Npm Installs |
 |---|---|--:|--:|
 | [`grunt-notify`](https://github.com/dylang/grunt-notify) | Automatic desktop notifications for Grunt errors and warnings using Growl for OS X or Windows, Mountain Lion and Mavericks Notification Center, and Notify-Send. | 798 | 36,294 |
-| [`shortid`](https://github.com/dylang/shortid) | Amazingly short non-sequential url-friendly unique id generator. | 261 | 8,357 |
-| [`rss`](https://github.com/dylang/node-rss) | RSS feed generator. A really simple API to add RSS feeds to any project. | 244 | 15,147 |
+| [`shortid`](https://github.com/dylang/shortid) | Amazingly short non-sequential url-friendly unique id generator. | 262 | 8,357 |
+| [`rss`](https://github.com/dylang/node-rss) | RSS feed generator. A really simple API to add RSS feeds to any project. | 243 | 15,147 |
 | [`npm-check`](https://github.com/dylang/npm-check) | Check for outdated, incorrect, and unused dependencies. | _New!_ | 1,164 |
-| [`xml`](https://github.com/dylang/node-xml) | Fast and simple xml generator. Supports attributes, CDATA, etc. Includes tests and examples. | 55 | 21,139 |
+| [`xml`](https://github.com/dylang/node-xml) | Fast and simple xml generator. Supports attributes, CDATA, etc. Includes tests and examples. | 56 | 21,139 |
 | [`changelog`](https://github.com/dylang/changelog) | Command line tool (and Node module) that generates a changelog in color output, markdown, or json for modules in npmjs.org's registry as well as any public github.com repo. | 60 | 166 |
 | [`logging`](https://github.com/dylang/logging) | Super sexy color console logging with cluster support. | 24 | 541 |
 | [`grunt-attention`](https://github.com/dylang/grunt-attention) | Display attention-grabbing messages in the terminal | _New!_ | 6,253 |
@@ -366,5 +368,5 @@ Released under the [MIT license](https://tldrlegal.com/license/mit-license).
 Screenshots are [CC BY-SA](http://creativecommons.org/licenses/by-sa/4.0/) (Attribution-ShareAlike).
 
 ***
-_Generated using [grunt-readme](https://github.com/assemble/grunt-readme) with [grunt-templates-dylang](https://github.com/dylang/grunt-templates-dylang) on Sunday, October 5, 2014._ [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dylang/grunt-prompt/trend.png)](https://bitdeli.com/free "Bitdeli Badge") [![Google Analytics](https://ga-beacon.appspot.com/UA-4820261-3/dylang/grunt-prompt)](https://github.com/igrigorik/ga-beacon)
+_Generated using [grunt-readme](https://github.com/assemble/grunt-readme) with [grunt-templates-dylang](https://github.com/dylang/grunt-templates-dylang) on Monday, October 6, 2014._ [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dylang/grunt-prompt/trend.png)](https://bitdeli.com/free "Bitdeli Badge") [![Google Analytics](https://ga-beacon.appspot.com/UA-4820261-3/dylang/grunt-prompt)](https://github.com/igrigorik/ga-beacon)
 

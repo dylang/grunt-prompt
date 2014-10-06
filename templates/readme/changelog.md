@@ -1,4 +1,6 @@
 ## Release History
+* **1.2.1** - 4 Oct 2014 - Separator can be '' or { separator: 'any string' }. Fixed it so choices can be strings again.
+* **1.2.0** - 4 Oct 2014 - Separator in choices can be a falsey value or string
 * **1.1.0** - 4 Mar 2014 - Messages can be functions instead of strings for dynamic questions.
 * **1.0.0** - 4 Feb 2014 - Dropping support for Node 0.8.
 * **0.2.2** - 4 Feb 2014 - Updated readme to make it auto-generated.

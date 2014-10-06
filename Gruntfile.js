@@ -259,9 +259,9 @@ module.exports = function (grunt) {
                             type: 'list',
                             message: 'List of choices with custom Separator',
                             choices: [
-                                chalk.bold.red('HEADING'),
-                                {name: 'Label 1'},
-                                {name: 'Label 2'},
+                                { separator: chalk.bold.red('HEADING') },
+                                'Label 1',
+                                'Label 2',
                                 '',
                                 {name: 'Label 3'},
                                 {name: 'Label 4'},
