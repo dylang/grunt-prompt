@@ -48,10 +48,13 @@ module.exports = function (grunt) {
                 _(answers).forEach(function(answer, configName){
                     grunt.config(configName, answer);
                 });
+                var delegateAsync = false;
                 if (_.isFunction(options.then)) {
-                    options.then(answers);
+                    delegateAsync = options.then(answers, done);
                 }
-                done();
+                if (!delegateAsync) {
+                    done();
+                }
             });
         }
     });

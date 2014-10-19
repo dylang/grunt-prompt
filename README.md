@@ -151,11 +151,33 @@ Choose when this question is asked. Perfect for asking questions based on the re
 
 ##### then
 
-Type: `function(results)` _optional_
+Type: `function(results, done):Boolean` _optional_
 
 Runs after all questions have been asked.
 
+The ```done``` parameter is optional, and can be used for async operations in your handler.
 
+When you return ```true``` from this function, the grunt-prompt code will not complete the async, so you are able to do your own async operations and call ```done()``` yourself. 
+
+```
+config:
+  prompt: {
+    demo: {
+      options: {
+        questions: [
+          ..
+        ],
+        then: function(results, done) {
+          someAsyncFunction(function () {
+            done();
+          )
+          return true;
+        }
+      }
+    }
+  }
+
+```
 
 ### How to use the results in your Gruntfile
 
