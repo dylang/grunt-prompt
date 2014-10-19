@@ -170,7 +170,7 @@ config:
         then: function(results, done) {
           someAsyncFunction(function () {
             done();
-          )
+          });
           return true;
         }
       }
