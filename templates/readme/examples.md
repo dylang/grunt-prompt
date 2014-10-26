@@ -13,32 +13,27 @@ prompt: {
         {
           config:  'bump.increment',
           type:    'list',
-          message: 'Bump version from ' + '<%= pkg.version %>'.cyan + ' to:',
+          message: 'Bump version from ' + '<%= pkg.version %>' + ' to:',
           choices: [
             {
               value: 'build',
-              name:  'Build:  '.yellow + (currentVersion + '-?').yellow +
-                ' Unstable, betas, and release candidates.'
+              name:  'Build:  '+ (currentVersion + '-?') + ' Unstable, betas, and release candidates.'
             },
             {
               value: 'patch',
-              name:  'Patch:  '.yellow + semver.inc(currentVersion, 'patch').yellow +
-                '   Backwards-compatible bug fixes.'
+              name:  'Patch:  ' + semver.inc(currentVersion, 'patch') + ' Backwards-compatible bug fixes.'
             },
             {
               value: 'minor',
-              name:  'Minor:  '.yellow + semver.inc(currentVersion, 'minor').yellow +
-                '   Add functionality in a backwards-compatible manner.'
+              name:  'Minor:  ' + semver.inc(currentVersion, 'minor') + ' Add functionality in a backwards-compatible manner.'
             },
             {
               value: 'major',
-              name:  'Major:  '.yellow + semver.inc(currentVersion, 'major').yellow +
-                '   Incompatible API changes.'
+              name:  'Major:  ' + semver.inc(currentVersion, 'major') + ' Incompatible API changes.'
             },
             {
               value: 'custom',
-              name:  'Custom: ?.?.?'.yellow +
-                '   Specify version...'
+              name:  'Custom: ?.?.? Specify version...'
             }
           ]
         },
@@ -50,9 +45,8 @@ prompt: {
             return answers['bump.increment'] === 'custom';
           },
           validate: function (value) {
-            var valid = semver.valid(value) && true;
-            return valid || 'Must be a valid semver, such as 1.2.3-rc1. See ' +
-              'http://semver.org/'.blue.underline + ' for more details.';
+            var valid = semver.valid(value);
+            return valid || 'Must be a valid semver, such as 1.2.3-rc1. See http://semver.org/ for more details.';
           }
         },
         {
@@ -62,14 +56,12 @@ prompt: {
           choices: [
             {
               value:   'package',
-              name:    'package.json' +
-                (!grunt.file.isFile('package.json') ? ' file not found, will create one'.grey : ''),
+              name:    'package.json' + (!grunt.file.isFile('package.json') ? ' not found, will create one' : ''),
               checked: grunt.file.isFile('package.json')
             },
             {
               value:   'bower',
-              name:    'bower.json' +
-                (!grunt.file.isFile('bower.json') ? ' file not found, will create one'.grey : ''),
+              name:    'bower.json' + (!grunt.file.isFile('bower.json') ? ' not found, will create one' : ''),
               checked: grunt.file.isFile('bower.json')
             },
             {
