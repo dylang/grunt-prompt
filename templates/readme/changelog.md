@@ -1,4 +1,5 @@
 ## Release History
+* **1.3.0** - 26 Oct 2014 - Add {{done}} callback for {{then}}.
 * **1.2.1** - 4 Oct 2014 - Separator can be '' or { separator: 'any string' }. Fixed it so choices can be strings again.
 * **1.2.0** - 4 Oct 2014 - Separator in choices can be a falsey value or string
 * **1.1.0** - 4 Mar 2014 - Messages can be functions instead of strings for dynamic questions.

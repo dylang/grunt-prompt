@@ -1,8 +1,7 @@
-## grunt-prompt [![NPM version](https://badge.fury.io/js/grunt-prompt.png)](http://badge.fury.io/js/grunt-prompt)  [![Build Status](https://travis-ci.org/dylang/grunt-prompt.png)](https://travis-ci.org/dylang/grunt-prompt) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+## grunt-prompt  [![Build Status](http://img.shields.io/travis/dylang/grunt-prompt.svg?style=flat-square)](https://travis-ci.org/dylang/grunt-prompt) [![grunt-prompt](http://img.shields.io/npm/dm/grunt-prompt.svg?style=flat-square)](https://www.npmjs.org/package/grunt-prompt)
 
 > Interactive prompt for your Grunt config using console checkboxes, text input with filtering, password fields.
 
-[![grunt-prompt](https://nodei.co/npm/grunt-prompt.png?downloads=true "grunt-prompt")](https://nodei.co/npm/grunt-prompt)
 
 
 | ![grunt-prompt in action](https://f.cloud.github.com/assets/51505/867636/e727abfc-f717-11e2-997e-6b97e24593c3.gif "grunt-prompt in action") |
@@ -48,12 +47,12 @@ grunt.initConfig({
       options: {
         questions: [
           {
-            config: 'config.name', // arbitray name or config for any other grunt task
+            config: 'config.name', // arbitrary name or config for any other grunt task
             type: '<question type>', // list, checkbox, confirm, input, password
             message: 'String|function()', // Question to ask the user, function needs to return a string,
             default: 'value', // default value if nothing is entered
             choices: 'Array|function(answers)',
-            validate: function(value), // return true if valid, error message if invalid. works only with type:input
+            validate: function(value), // return true if valid, error message if invalid. works only with type:input 
             filter:  function(value), // modify the answer
             when: function(answers) // only ask this question when this function returns true
           }
@@ -136,7 +135,6 @@ Type: `function(value)` _optional_
 
 Return `true` if it is valid (true `true`, not a truthy value).
 Return `string` message if it is not valid.
-Works only with type:input
 
 ##### filter
 
@@ -150,7 +148,7 @@ Type: `function(answers)` _optional_
 
 Choose when this question is asked. Perfect for asking questions based on the results of previous questions.
 
-##### then
+###### then
 
 Type: `function(results, done):Boolean` _optional_
 
@@ -179,6 +177,8 @@ config:
   }
 
 ```
+
+
 
 ### How to use the results in your Gruntfile
 
@@ -340,6 +340,7 @@ prompt: {
 
 
 ### Release History
+* **1.3.0** - 26 Oct 2014 - Add {{done}} callback for {{then}}.
 * **1.2.1** - 4 Oct 2014 - Separator can be '' or { separator: 'any string' }. Fixed it so choices can be strings again.
 * **1.2.0** - 4 Oct 2014 - Separator in choices can be a falsey value or string
 * **1.1.0** - 4 Mar 2014 - Messages can be functions instead of strings for dynamic questions.
@@ -353,32 +354,25 @@ prompt: {
 
 
 
-### About the Author
+### About the Author [![@dylang](https://img.shields.io/badge/github-dylang-green.svg?style=flat-square)](https://github.com/dylang) [![@dylang](https://img.shields.io/badge/twitter-dylang-blue.svg?style=flat-square)](https://twitter.com/dylang)
 
-Hello fellow developer! My name is [Dylan Greene](https://github.com/dylang). When
-not overwhelmed with my two kids I enjoy contributing to the open source community.
-I'm a tech lead at [Opower](http://opower.com). I lead a team using Grunt and Angular to build software that
-successfully helps people like us use less power.
-Not too long ago I co-created [Doodle or Die](http://doodleordie.com), a hilarious web game with millions of
-doodles that won us Node Knockout for the "most fun" category.
-I'm [dylang](https://twitter.com/dylang) on Twitter and other places.
+Hi! Thanks for checking `grunt-prompt`! My name is **Dylan Greene**. When not overwhelmed with my two young kids I enjoy contributing
+to the open source community. I'm also a tech lead at [Opower](http://opower.com).
 
-Some of my other Node projects:
+Here's some of my other Node projects:
 
-| Name | Description | Github Stars | Npm Installs |
+| Name | Description | npm&nbsp;Downloads |
 |---|---|--:|--:|
-| [`grunt-notify`](https://github.com/dylang/grunt-notify) | Automatic desktop notifications for Grunt errors and warnings using Growl for OS X or Windows, Mountain Lion and Mavericks Notification Center, and Notify-Send. | 798 | 36,294 |
-| [`shortid`](https://github.com/dylang/shortid) | Amazingly short non-sequential url-friendly unique id generator. | 262 | 8,357 |
-| [`rss`](https://github.com/dylang/node-rss) | RSS feed generator. A really simple API to add RSS feeds to any project. | 243 | 15,147 |
-| [`npm-check`](https://github.com/dylang/npm-check) | Check for outdated, incorrect, and unused dependencies. | _New!_ | 1,164 |
-| [`xml`](https://github.com/dylang/node-xml) | Fast and simple xml generator. Supports attributes, CDATA, etc. Includes tests and examples. | 56 | 21,139 |
-| [`changelog`](https://github.com/dylang/changelog) | Command line tool (and Node module) that generates a changelog in color output, markdown, or json for modules in npmjs.org's registry as well as any public github.com repo. | 60 | 166 |
-| [`logging`](https://github.com/dylang/logging) | Super sexy color console logging with cluster support. | 24 | 541 |
-| [`grunt-attention`](https://github.com/dylang/grunt-attention) | Display attention-grabbing messages in the terminal | _New!_ | 6,253 |
-| [`observatory`](https://github.com/dylang/observatory) | Beautiful UI for showing tasks running on the command line. | 31 | 3,516 |
-| [`flowdock-refined`](https://github.com/dylang/flowdock-refined) | Flowdock desktop app custom UI | _New!_ | 59 |
-| [`anthology`](https://github.com/dylang/anthology) | Module information and stats for any @npmjs user | _New!_ | 216 |
-| [`grunt-cat`](https://github.com/dylang/grunt-cat) | Echo a file to the terminal. Works with text, figlets, ascii art, and full-color ansi. | _New!_ | 102 |
+| [`grunt‑notify`](https://github.com/dylang/grunt-notify) | Automatic desktop notifications for Grunt errors and warnings using Growl for OS X or Windows, Mountain Lion and Mavericks Notification Center, and Notify-Send. | [![grunt-notify](https://img.shields.io/npm/dm/grunt-notify.svg?style=flat-square)](https://www.npmjs.org/package/grunt-notify) |
+| [`shortid`](https://github.com/dylang/shortid) | Amazingly short non-sequential url-friendly unique id generator. | [![shortid](https://img.shields.io/npm/dm/shortid.svg?style=flat-square)](https://www.npmjs.org/package/shortid) |
+| [`rss`](https://github.com/dylang/node-rss) | RSS feed generator. Add RSS feeds to any project. Supports enclosures and GeoRSS. | [![rss](https://img.shields.io/npm/dm/rss.svg?style=flat-square)](https://www.npmjs.org/package/rss) |
+| [`xml`](https://github.com/dylang/node-xml) | Fast and simple xml generator. Supports attributes, CDATA, etc. Includes tests and examples. | [![xml](https://img.shields.io/npm/dm/xml.svg?style=flat-square)](https://www.npmjs.org/package/xml) |
+| [`npm‑check`](https://github.com/dylang/npm-check) | Check for outdated, incorrect, and unused dependencies. | [![npm-check](https://img.shields.io/npm/dm/npm-check.svg?style=flat-square)](https://www.npmjs.org/package/npm-check) |
+| [`changelog`](https://github.com/dylang/changelog) | Command line tool (and Node module) that generates a changelog in color output, markdown, or json for modules in npmjs.org's registry as well as any public github.com repo. | [![changelog](https://img.shields.io/npm/dm/changelog.svg?style=flat-square)](https://www.npmjs.org/package/changelog) |
+| [`grunt‑attention`](https://github.com/dylang/grunt-attention) | Display attention-grabbing messages in the terminal | [![grunt-attention](https://img.shields.io/npm/dm/grunt-attention.svg?style=flat-square)](https://www.npmjs.org/package/grunt-attention) |
+| [`observatory`](https://github.com/dylang/observatory) | Beautiful UI for showing tasks running on the command line. | [![observatory](https://img.shields.io/npm/dm/observatory.svg?style=flat-square)](https://www.npmjs.org/package/observatory) |
+| [`anthology`](https://github.com/dylang/anthology) | Module information and stats for any @npmjs user | [![anthology](https://img.shields.io/npm/dm/anthology.svg?style=flat-square)](https://www.npmjs.org/package/anthology) |
+| [`grunt‑cat`](https://github.com/dylang/grunt-cat) | Echo a file to the terminal. Works with text, figlets, ascii art, and full-color ansi. | [![grunt-cat](https://img.shields.io/npm/dm/grunt-cat.svg?style=flat-square)](https://www.npmjs.org/package/grunt-cat) |
 
 _This list was generated using [anthology](https://github.com/dylang/anthology)._
 
@@ -391,5 +385,5 @@ Released under the [MIT license](https://tldrlegal.com/license/mit-license).
 Screenshots are [CC BY-SA](http://creativecommons.org/licenses/by-sa/4.0/) (Attribution-ShareAlike).
 
 ***
-_Generated using [grunt-readme](https://github.com/assemble/grunt-readme) with [grunt-templates-dylang](https://github.com/dylang/grunt-templates-dylang) on Monday, October 6, 2014._ [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dylang/grunt-prompt/trend.png)](https://bitdeli.com/free "Bitdeli Badge") [![Google Analytics](https://ga-beacon.appspot.com/UA-4820261-3/dylang/grunt-prompt)](https://github.com/igrigorik/ga-beacon)
+_Generated using [grunt-readme](https://github.com/assemble/grunt-readme) with [grunt-templates-dylang](https://github.com/dylang/grunt-templates-dylang) on Sunday, October 26, 2014._
 
