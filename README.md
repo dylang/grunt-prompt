@@ -296,7 +296,7 @@ prompt: {
           },
           validate: function (value) {
             var valid = semver.valid(value);
-            return valid || 'Must be a valid semver, such as 1.2.3-rc1. See http://semver.org/ for more details.';
+            return !!valid || 'Must be a valid semver, such as 1.2.3-rc1. See http://semver.org/ for more details.';
           }
         },
         {
