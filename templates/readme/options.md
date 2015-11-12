@@ -30,9 +30,9 @@ The documentation for [Inquiry](https://github.com/SBoudrias/Inquirer.js) has [m
 
 #### message
 
-Type: `String|function()` _required_
+Type: `String|function(answers):String` _required_
 
-Question to ask the user. If it's a function, it needs to return a string.
+The question to ask the user. If it's a function, it needs to return a string. The first parameter of this function will be an array containing all previously supplied answers. This allows you to customize the message based on the results of previous questions.
 
 Hint: keep it short, users hate to read.
 

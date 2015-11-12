@@ -38,9 +38,6 @@ module.exports = function (grunt) {
                 // config just made more sense than name, but we accept both
                 question.name = question.config || question.name;
                 question.choices = addSeparator(question.choices);
-                if (_.isFunction(question.message)) {
-                    question.message = question.message();
-                }
                 return question;
             });
 
