@@ -1,4 +1,4 @@
-## grunt-prompt  [![Build Status](http://img.shields.io/travis/https://github.com/dylang/grunt-prompt.svg)](https://travis-ci.org/https://github.com/dylang/grunt-prompt) [![grunt-prompt](http://img.shields.io/npm/dm/grunt-prompt.svg)](https://www.npmjs.org/package/grunt-prompt)
+## grunt-prompt  [![Build Status](http://img.shields.io/travis/dylang/grunt-prompt.svg)](https://travis-ci.org/dylang/grunt-prompt) [![grunt-prompt](http://img.shields.io/npm/dm/grunt-prompt.svg)](https://www.npmjs.org/package/grunt-prompt)
 
 > Interactive prompt for your Grunt config using console checkboxes, text input with filtering, password fields.
 
