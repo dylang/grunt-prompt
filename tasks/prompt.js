@@ -42,7 +42,7 @@ module.exports = function (grunt) {
             });
 
             inquirer.prompt( questions, function( answers ) {
-                _(answers).forEach(function(answer, configName){
+                _.forEach(answers, function(answer, configName){
                     grunt.config(configName, answer);
                 });
                 var delegateAsync = false;
