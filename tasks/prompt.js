@@ -35,8 +35,8 @@ module.exports = function (grunt) {
             var done = this.async();
 
             questions = questions.filter(function(question){
-              var config = question.config || question.name;;
-              if(grunt.option(config)){
+              var config = question.config || question.name;
+              if(grunt.option(config)) {
                 grunt.config(config, grunt.option(config));
                 return false;
               } else {
