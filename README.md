@@ -327,12 +327,14 @@ prompt: {
 }
 ```
 
-
+### Command Line Arguments
+You can optionally specify the value of prompt config variables on the command line.  For example `--config.name=value`
 
 
 
 
 ### Release History
+* **1.3.3** - 2 Feb 2016 - Added ability to specify prompt values on command line
 * **1.3.0** - 26 Oct 2014 - Add {{done}} callback for {{then}}.
 * **1.2.1** - 4 Oct 2014 - Separator can be '' or { separator: 'any string' }. Fixed it so choices can be strings again.
 * **1.2.0** - 4 Oct 2014 - Separator in choices can be a falsey value or string
