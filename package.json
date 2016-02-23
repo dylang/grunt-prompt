@@ -1,7 +1,7 @@
 {
   "name": "grunt-prompt",
   "description": "Interactive prompt for your Grunt config using console checkboxes, text input with filtering, password fields.",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "author": {
     "name": "Dylan Greene",
     "email": "dylang@gmail.com"
