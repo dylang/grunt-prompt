@@ -112,10 +112,26 @@ module.exports = function (grunt) {
                                 }
                                 return true;
                             }
+                        },
+                        {
+                            config: 'echo.editor',
+                            type: 'editor',
+                            message: 'Editopr input',
+                            validate: function(value) {
+                                if (!value.startsWith('Hello')) {
+                                    return 'Please start your content with "' + chalk.underline('Hello') + '"';
+                                }
+                                return true;
+                            }
                         }
                     ],
                     then: function(){
                         console.log(chalk.green.bold.underline('Great job!'));
+						console.log('You entered following informations: ');
+						for(var type in grunt.config('echo')){
+							var value = grunt.config('echo')[type];
+							console.log(chalk.bold(type) + ' => ' + chalk.grey(value));
+						}
                     }
                 }
             },
