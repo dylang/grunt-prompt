@@ -41,7 +41,7 @@ module.exports = function (grunt) {
                 return question;
             });
 
-            inquirer.prompt( questions, function( answers ) {
+            inquirer.prompt( questions ).then( function( answers ) {
                 _.forEach(answers, function(answer, configName){
                     grunt.config(configName, answer);
                 });
