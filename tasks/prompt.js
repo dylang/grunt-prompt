@@ -12,13 +12,12 @@ module.exports = function (grunt) {
     grunt.registerMultiTask('prompt', 'Interactive command line user prompts.', function () {
 
         var inquirer = require('inquirer'),
-            options = this.options(),
-            _ = require('lodash');
+            options = this.options();
 
         var questions = options.questions;
 
         function addSeparator(choices) {
-            if (!choices || _.isFunction(choices)) {
+            if (!choices || typeof choices === 'function') {
                 return choices;
             }
 
@@ -40,13 +39,17 @@ module.exports = function (grunt) {
                 question.choices = addSeparator(question.choices);
                 return question;
             });
-
+            /**
+             * @param {Object} answers
+             */
             inquirer.prompt( questions, function( answers ) {
-                _.forEach(answers, function(answer, configName){
+                var answerPairs = Object.entries(answers);
+                answerPairs.forEach(answerPair => {
+                    var [configName, answer] = answerPair;
                     grunt.config(configName, answer);
                 });
                 var delegateAsync = false;
-                if (_.isFunction(options.then)) {
+                if (typeof options.then === 'function') {
                     delegateAsync = options.then(answers, done);
                 }
                 if (!delegateAsync) {

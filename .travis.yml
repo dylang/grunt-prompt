@@ -3,11 +3,11 @@ sudo: false
 language: node_js
 
 node_js:
-  - '0.10'
-  - '0.12'
-  - 'iojs'
-  - '4'
-  - '5'
+  - '8'
+  - '9'
+  - '10'
+  - '11'
+  - '12'
 
 script:
   - npm run test
