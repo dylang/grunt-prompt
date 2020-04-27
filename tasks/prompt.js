@@ -43,9 +43,9 @@ module.exports = function (grunt) {
              * @param {Object} answers
              */
             inquirer.prompt( questions, function( answers ) {
-                const answerPairs = Object.entries(answers);
-                answerPairs.forEach((answerPair) => {
-                    const [configName, answer] = answerPair;
+                var answerPairs = Object.entries(answers);
+                answerPairs.forEach(answerPair => {
+                    var [configName, answer] = answerPair;
                     grunt.config(configName, answer);
                 });
                 var delegateAsync = false;
